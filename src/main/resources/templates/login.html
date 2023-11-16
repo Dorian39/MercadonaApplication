@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Login</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    </head>
+    <body>
+        <h1>Vous devez être connecté en tant qu'administrateur pour créer un produit</h1>
+        <div th:if="${param.error}">Invalid username and password.</div>
+        <div th:if="${param.logout}">You have been logged out.</div>
+        <form th:action="@{/login}" method="post">
+            <div>
+                <label> Nom d'utilisateur : <input type="text" name="username" /> </label>
+            </div>
+            <div>
+                <label> Mot de passe : <input type="password" name="password" /> </label>
+            </div>
+            <div><input type="submit" value="Se connecter" /></div>
+        </form>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+</html>

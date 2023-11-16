@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Tous les produits</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/styles.css" />
+    </head>
+    <body>
+        <style>
+            footer {
+                background-color: #f2f2f2;
+                padding: 20px;
+                text-align: center;
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+            }
+        </style>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Mercadona</a>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/home">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/produit/create">Créer un produit</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <h1>Tous les produits</h1>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Tous les produits</th>
+                    <th>Image des produits</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="produit : ${produits}">
+                    <td>
+                        <div>
+                            <p th:text="${produit.libelle}"></p>
+                            <p th:text="${produit.description}"></p>
+                            <p th:text="${produit.prix} + ' €'"></p>
+                        </div>
+                    </td>
+                    <td>
+                        <img th:src="${produit.image}" class="product-image" style="width: 150px; height: 150px; object-fit: cover" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <style>
+            h1 {
+                margin: 3rem;
+            }
+
+            table {
+                width: auto;
+                border-collapse: collapse;
+                margin: 5rem;
+            }
+
+            th,
+            td {
+                border: 1px solid black;
+                padding: 8px;
+                text-align: left;
+            }
+        </style>
+        <footer>
+            <p>Site officiel Mercadona</p>
+            <p>Tous droits réservés © Mercadona/PromoWeb 2023</p>
+        </footer>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+</html>
